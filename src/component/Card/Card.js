@@ -21,14 +21,24 @@ const Card = ({ title, title1, icon }) => {
 export default Card;
 
 const Title = styled.div`
-  font-weight: bold;
   font-size: 30px;
   margin: 0 10px;
+  line-height: 0.9;
+
+  div {
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  span {
+    font-size: 25px;
+    margin-top: 25px;
+  }
 `;
 
 const Icon = styled.div`
-  margin-right: 30px;
-  margin-left: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
   color: red;
   font-size: 40px;
 `;

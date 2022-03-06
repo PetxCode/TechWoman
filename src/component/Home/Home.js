@@ -12,12 +12,17 @@ const Home = () => {
         <Hero />
         <UsedCard />
         <USeBodyCard />
+        <Space />
       </Container>
     </div>
   );
 };
 
 export default Home;
+
+const Space = styled.div`
+  margin-top: 40px;
+`;
 
 const Container = styled.div`
   padding-top: 100px;

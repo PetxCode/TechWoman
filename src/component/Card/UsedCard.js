@@ -1,5 +1,7 @@
 import React from "react";
+import { AiOutlineWoman } from "react-icons/ai";
 import { GiReactor } from "react-icons/gi";
+import { ImManWoman } from "react-icons/im";
 import styled from "styled-components";
 import Card from "./Card";
 
@@ -16,12 +18,12 @@ const UsedCard = () => {
           <Card
             title="Techwomen"
             title1="Nigeria Conference"
-            icon={<GiReactor />}
+            icon={<AiOutlineWoman />}
           />
           <Card
             title="Join Our Techwoman's"
             title1="Experience Circle"
-            icon={<GiReactor />}
+            icon={<ImManWoman />}
           />
         </Wrapper>
       </Container>

@@ -13,33 +13,35 @@ import OrientationImage from "./component/Home/OrientationImage";
 import MicrosoftImage from "./component/Home/MicrosoftImage";
 import CapstoneImage from "./component/Home/CapstoneImage";
 import { PreviewImage } from "./component/Home/PreviewImages";
-import styled from "styled-components";
 import CUlturalDayImage from "./component/Home/CulturalDayImages";
 import AmericanCornerImage from "./component/Home/AmericanCornerImages";
 import WorkshopKreatngImage from "./component/Home/WorkshopKreatngImages";
+import ScrollToTop from "./component/ScrollToTop";
 
 const App = () => {
   return (
     <div style={{ fontFamily: "Raleway" }}>
       <BrowserRouter>
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/gallery" element={<About />} />
-          <Route path="/upload" element={<Project />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/signin" element={<SignIn />} />
+        <ScrollToTop>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/gallery" element={<About />} />
+            <Route path="/upload" element={<Project />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/signin" element={<SignIn />} />
 
-          <Route path="/culturalDay" element={<CUlturalDayImage />} />
-          <Route path="/ameriacanCorner" element={<AmericanCornerImage />} />
-          <Route path="/workshopKreatng" element={<WorkshopKreatngImage />} />
+            <Route path="/culturalDay" element={<CUlturalDayImage />} />
+            <Route path="/ameriacanCorner" element={<AmericanCornerImage />} />
+            <Route path="/workshopKreatng" element={<WorkshopKreatngImage />} />
 
-          <Route path="/orientation" element={<OrientationImage />} />
-          <Route path="/microsoft" element={<MicrosoftImage />} />
-          <Route path="/capstone" element={<CapstoneImage />} />
+            <Route path="/orientation" element={<OrientationImage />} />
+            <Route path="/microsoft" element={<MicrosoftImage />} />
+            <Route path="/capstone" element={<CapstoneImage />} />
 
-          <Route path="/preview" element={<PreviewImage />} />
-        </Routes>
+            <Route path="/preview" element={<PreviewImage />} />
+          </Routes>
+        </ScrollToTop>
         <UseFooter />
       </BrowserRouter>
     </div>

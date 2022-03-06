@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
 import pix1 from "./Images/11.jpg";
@@ -8,8 +8,14 @@ import pix4 from "./Images/4.jpg";
 import pix5 from "./Images/5.jpg";
 import pix6 from "./Images/12.jpg";
 import pix7 from "./Images/7.png";
+import { app } from "../../base";
+import { useEffect } from "react";
 
 const Hero = () => {
+  const myPix =
+    "https://firebasestorage.googleapis.com/v0/b/tech-women-nigeria.appspot.com/o/TechWoman%2FIMG-20220218-WA0040.jpg?alt=media&token=74e5c0ce-7461-49c9-91bb-2e0920fa04db";
+
+  const [getData, setGetData] = useState(null);
   const settings = {
     dots: true,
     infinite: true,
@@ -19,16 +25,40 @@ const Hero = () => {
     autoplaySpeed: 7500,
     cssEase: "linear",
     autoplay: true,
-    pauseOnHover: true,
+    pauseOnHover: true
   };
+
+  const getMicroSoftVisitData = async () => {
+    await app
+      .firestore()
+      .collection("MicroSoftVisit")
+      .orderBy("createdAt", "asc")
+      .limit(5)
+      .onSnapshot((snapshot) => {
+        const r = [];
+        snapshot.forEach((doc) => {
+          r.push({ ...doc.data(), id: doc.id });
+        });
+        setGetData(r);
+      });
+  };
+
+  useEffect(() => {
+    getMicroSoftVisitData();
+  }, []);
+
   return (
     <Conatiner>
       <SliderSetting {...settings}>
-        <Wrap>
-          <Header>
-            <Image src={pix1} />
-          </Header>
-        </Wrap>
+        {getData.map((props) => (
+          <Wrap key={props.id}>
+            <Header>
+              <Image src={props.uploadImage} />
+            </Header>
+          </Wrap>
+        ))}
+
+        {/*         
         <Wrap>
           <Header>
             <Image src={pix2} />
@@ -58,7 +88,7 @@ const Hero = () => {
           <Header>
             <Image src={pix7} />
           </Header>
-        </Wrap>
+        </Wrap> */}
       </SliderSetting>
     </Conatiner>
   );
